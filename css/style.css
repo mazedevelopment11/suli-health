@@ -1,0 +1,210 @@
+:root {
+  --teal: #3fe0a5;
+  --green: #2ecc71;
+  --blue: #3fa9f5;
+  --deep-blue: #1b3a8a;
+  --navy: #060a1f;
+  --glass-bg: rgba(20, 45, 90, 0.32);
+  --glass-border: rgba(140, 200, 255, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--navy);
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 560px;
+  overflow: hidden;
+  background-color: var(--navy);
+}
+
+.bg-blur,
+.bg-sharp {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('../images/hero-slemani.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.bg-blur {
+  background-size: cover;
+  filter: blur(60px) saturate(120%) brightness(0.85);
+  transform: scale(1.2);
+}
+
+.bg-sharp {
+  z-index: 1;
+  background-size: auto 100%;
+  background-position: top center;
+}
+
+@media (max-width: 700px) {
+  .bg-sharp { background-size: cover; }
+}
+
+#particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo {
+  position: absolute;
+  z-index: 4;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(150px, 20vw, 260px);
+  height: auto;
+  filter: drop-shadow(0 4px 24px rgba(0, 10, 30, 0.5));
+  pointer-events: none;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(
+    to top,
+    rgba(4, 10, 24, 0.78) 0%,
+    rgba(4, 10, 24, 0.45) 28%,
+    rgba(4, 10, 24, 0.08) 52%,
+    rgba(4, 10, 24, 0) 68%
+  );
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 4;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 6vh 5vw 7vh;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(178, 224, 255, 0.85);
+}
+
+.heading {
+  margin: 0 0 2.2rem;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #f4faff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 640px;
+}
+
+.card {
+  flex: 1 1 240px;
+  min-width: 220px;
+  max-width: 300px;
+  padding: 1.6rem 1.4rem 1.7rem;
+  border-radius: 20px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    0 8px 32px rgba(4, 12, 40, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 40px rgba(80, 160, 255, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(180, 225, 255, 0.55);
+  box-shadow:
+    0 14px 40px rgba(4, 12, 40, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 50px rgba(80, 160, 255, 0.1);
+}
+
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  margin-bottom: 0.9rem;
+  color: #bfe6ff;
+  background: linear-gradient(135deg, rgba(63, 169, 245, 0.28), rgba(63, 224, 165, 0.2));
+  border: 1px solid rgba(180, 225, 255, 0.3);
+}
+
+.card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.card-tag {
+  margin: 0 0 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(150, 210, 255, 0.8);
+}
+
+.card-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.28rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+.card-sub {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 300;
+  color: rgba(220, 235, 250, 0.75);
+}
+
+@media (max-width: 480px) {
+  .content { padding: 5vh 6vw 6vh; justify-content: flex-end; }
+  .cards { flex-direction: column; align-items: center; }
+  .card { width: 100%; max-width: 340px; }
+}
+
+@media (min-width: 900px) {
+  .hero { background-position: top center; }
+  .content { padding-bottom: 9vh; }
+}
